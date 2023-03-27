@@ -6,7 +6,9 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/21 22:43:54 by opelser       ########   odam.nl         */
+/*   Updated: 2023/03/27 22:07:48 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../lib/Libft/libft/lib/libft.h"
 
