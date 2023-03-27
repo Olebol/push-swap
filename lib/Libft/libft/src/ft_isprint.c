@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_isprint.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/10/03 20:43:31 by opelser       #+#    #+#                 */
+/*   Updated: 2022/10/03 20:53:51 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
-
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
+	if (c >= 32 && c <= 126)
+		return (1);
 	return (0);
 }

@@ -1,9 +1,8 @@
-NAME := push_swap
-NICKNAME := PUSH SWAP
+NAME := get_next_line.a
+NICKNAME := GNL
 
 # Directories
-HDR_DIR := include
-LIB_DIR := lib
+HDR_DIR := lib
 SRC_DIR := src
 OBJ_DIR := obj
 
@@ -12,15 +11,11 @@ CC := gcc
 CFLAGS := -Wall -Werror -Wextra
 
 # Includes
-HDR_FILES :=	push_swap.h
-
-# Libft
-LIBFT_DIR		:= $(LIB_DIR)/Libft
-LIB				:= $(LIBFT_DIR)/libft.a
+HDR_FILES :=	get_next_line.h
 
 # Files
-SRC_FILES :=	main.c			\
-				input.c
+SRC_FILES :=	get_next_line.c	\
+				get_next_line_utils.c
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -36,13 +31,10 @@ RESET	:= \033[0m
 # Rules
 all: ${NAME}
 
-$(NAME): $(OBJ) $(LIB)
+$(NAME): $(OBJ)
 	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@gcc $(OBJ) $(LIB) -o $(NAME) 
+	@ar rc ${NAME} $<
 	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
-
-$(LIB):
-	@make -C $(LIBFT_DIR)
 
 $(OBJ_DIR)/%.o: src/%.c $(HDR)
 	@mkdir -p obj
@@ -55,14 +47,9 @@ clean:
 	@echo "$(RED)$(BOLD)Cleaning $(NICKNAME)...$(RESET)"
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
-	@make clean -C $(LIBFT_DIR)
 
-fclean:
-	@echo "$(RED)$(BOLD)Fully cleaning $(NICKNAME)...$(RESET)"
+fclean: clean
 	@rm -rf ${NAME}
-	@rm -rf $(OBJ)
-	@rm -rf $(OBJ_DIR)
-	@make fclean -C $(LIBFT_DIR)
 
 re: fclean ${NAME}
 

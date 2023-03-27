@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/10/20 15:43:25 by opelser       #+#    #+#                 */
+/*   Updated: 2022/11/14 18:42:04 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#include "libft.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	while (n > 0)
+	{
+		if (*(unsigned char *) s == (unsigned char) c)
+			return ((void *) s);
+		n--;
+		s++;
+	}
+	return (NULL);
 }

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2023/01/05 22:04:57 by opelser       #+#    #+#                 */
+/*   Updated: 2023/01/10 19:03:34 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
+# include "ft_conversions.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
+typedef int	(*t_function)(va_list);
 
-int	main(int argc, char **argv)
-{
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
-}
+int		ft_printf(const char *format, ...);
+
+#endif

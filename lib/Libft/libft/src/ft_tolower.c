@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/10/19 19:27:51 by opelser       #+#    #+#                 */
+/*   Updated: 2022/10/19 19:29:12 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
-
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

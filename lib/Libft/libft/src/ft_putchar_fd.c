@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_putchar_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/11/03 16:41:33 by opelser       #+#    #+#                 */
+/*   Updated: 2022/11/08 22:30:40 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#include "libft.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	write(fd, &c, 1);
 }

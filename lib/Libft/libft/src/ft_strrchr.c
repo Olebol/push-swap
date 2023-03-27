@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/10/19 19:50:38 by opelser       #+#    #+#                 */
+/*   Updated: 2022/11/16 17:57:31 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#include "libft.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	ssize_t		i;
+
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char) c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }
+
+// #include <stdio.h>
+// int	main()
+// {
+// 	const char	str[] = "bababooey";
+
+// 	printf("%s", ft_strrchr(str, 'b'));
+// 	return;
+// }

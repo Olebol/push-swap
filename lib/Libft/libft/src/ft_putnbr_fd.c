@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/11/03 20:03:28 by opelser       #+#    #+#                 */
+/*   Updated: 2022/11/14 18:01:26 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#include "libft.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	if (n == -2147483648)
+		return (ft_putstr_fd("-2147483648", fd));
+	if (n < 0)
+	{
+		n *= -1;
+		write(fd, "-", 1);
+	}
+	if (n >= 10)
+		ft_putnbr_fd((n / 10), fd);
+	ft_putchar_fd(((n % 10) + '0'), fd);
 }
+
+// int main(void)
+// {
+// 	ft_putnbr_fd(45, 1);
+// 	return (0);
+// }

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_bzero.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/27 19:04:20 by opelser       ########   odam.nl         */
+/*   Created: 2022/10/04 18:31:51 by opelser       #+#    #+#                 */
+/*   Updated: 2022/11/08 23:02:51 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <unistd.h>
+#include "libft.h"
 
-#define INVALID_ARGS_MSG "\n\t\t\tInvalid arguments\n\n\
-./push_swap \"[integers]\"\tor\t./push_swap [int] [int] [int]\n\n"
-
-int	main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
-	(void) argc;
-	(void) argv;
-	write(1, "Hello\n", 7);
-	return (0);
+	ft_memset(s, '\0', n);
 }
+
+// #include <stdio.h>
+// int main () {
+
+//     char str[] = "abcdcdee";
+//     int c = 6;
+
+//     ft_bzero(str, c);
+//     printf("String after first |%d| bytes changes to 0 is - |%s|\n", c, str);
+
+//    return(0);
+// }
