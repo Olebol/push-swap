@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 19:40:18 by opelser       ########   odam.nl         */
+/*   Updated: 2023/03/28 20:57:02 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,6 @@
 #include <unistd.h>
 
 #define ERROR "Error\n"
-
-void	free_list(t_node *node)
-{
-	t_node	*tmp;
-
-	if (node == NULL)
-		return ;
-	while (node->next != NULL)
-	{
-		tmp = node->next;
-		free(node);
-		node = tmp;
-	}
-	free(node);
-}
 
 int	main(int argc, char **argv)
 {
@@ -45,10 +30,14 @@ int	main(int argc, char **argv)
 	}
 	if (!args_to_list(strings, &first_node))
 	{
+		if (argc == 2)
+			ft_free(strings);
 		write(1, ERROR, sizeof(ERROR));
 		free_list(first_node.next);
 		return (2);
 	}
+	if (argc == 2)
+		ft_free(strings);
 	print_list(&first_node);
 	free_list(first_node.next);
 	return (0);

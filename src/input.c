@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 19:39:48 by opelser       ########   odam.nl         */
+/*   Updated: 2023/03/28 20:47:21 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,6 @@ t_node	*create_new_node(void)
 	return (new_node);
 }
 
-static void	ft_free(char **ptr_arr)
-{
-	int		i;
-
-	i = 0;
-	while (ptr_arr[i])
-	{
-		free(ptr_arr[i]);
-		i++;
-	}
-	free(ptr_arr);
-}
-
 int	args_to_list(char **strings, t_node *node)
 {
 	int		i;
@@ -63,20 +50,13 @@ int	args_to_list(char **strings, t_node *node)
 	while (strings[i] != NULL)
 	{
 		if (!ft_err_atoi(strings[i], &node->value))
-		{
-			ft_free(strings);
 			return (0);
-		}
 		tmp = create_new_node();
 		if (!tmp)
-		{
-			ft_free(strings);
 			return (0);
-		}
 		node->next = tmp;
 		node = node->next;
 		i++;
 	}
-	ft_free(strings);
 	return (1);
 }

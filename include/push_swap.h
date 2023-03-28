@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 19:18:49 by opelser       ########   odam.nl         */
+/*   Updated: 2023/03/28 20:55:59 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ int		args_to_list(char **strings, t_node *node);
 
 void	print_list(t_node *node);
 void	check_for_leaks(void);
+
+//		~ cleanup.c
+
+void	free_list(t_node *node);
+void	ft_free(char **ptr_arr);
 
 #endif
