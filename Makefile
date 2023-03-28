@@ -20,7 +20,8 @@ LIB				:= $(LIBFT_DIR)/libft.a
 
 # Files
 SRC_FILES :=	main.c			\
-				input.c
+				input.c			\
+				delete_this.c
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}

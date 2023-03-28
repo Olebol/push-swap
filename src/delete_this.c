@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   delete_this.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 19:18:49 by opelser       ########   odam.nl         */
+/*   Created: 2023/03/28 19:13:39 by opelser       #+#    #+#                 */
+/*   Updated: 2023/03/28 19:20:53 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../lib/Libft/libft/lib/libft.h"
+#include <unistd.h>
+#include "push_swap.h"
+#include <stdio.h>
 
-typedef struct s_node{
-	int				value;
-	struct s_node	*next;
-}	t_node;
+void	print_list(t_node *node)
+{
+	while (node->next != NULL)
+	{
+		printf("%d\n", node->value);
+		node = node->next;
+	}
+}
 
-//		~ input.c
-char	**make_strings(int argc, char **argv);
-t_node	*create_new_node(void);
-int		args_to_list(char **strings, t_node *node);
-
-//		~ delete_this.c
-
-void	print_list(t_node *node);
-void	check_for_leaks(void);
-
-#endif
+void	check_for_leaks(void)
+{
+	write(1, "\n\n\n", 3);
+	system("leaks -q push_swap");
+}
