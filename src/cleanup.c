@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/28 20:54:15 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 20:54:49 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 17:11:12 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	free_list(t_node *node)
 {
-	t_node	*tmp;
-
 	if (node == NULL)
 		return ;
 	while (node->next != NULL)
 	{
-		tmp = node->next;
 		free(node);
-		node = tmp;
+		node = node->next;
 	}
 	free(node);
 }

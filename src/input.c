@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 20:47:21 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 17:03:30 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,26 @@ int	args_to_list(char **strings, t_node *node)
 		node->next = tmp;
 		node = node->next;
 		i++;
+	}
+	return (1);
+}
+
+int check_double(t_node *checker_node)
+{
+	int		checker_value;
+	t_node	*node;
+
+	while (checker_node->next != NULL)
+	{
+		checker_value = checker_node->value;
+		node = checker_node->next;
+		while (node->next != NULL)
+		{
+			if (checker_value == node->value)
+				return (0);
+			node = node->next;
+		}
+		checker_node = checker_node->next;
 	}
 	return (1);
 }

@@ -6,13 +6,14 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 20:55:59 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 17:03:42 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../lib/Libft/libft/lib/libft.h"
+# define ERROR "Error\n"
 
 typedef struct s_node{
 	int				value;
@@ -20,9 +21,11 @@ typedef struct s_node{
 }	t_node;
 
 //		~ input.c
+
 char	**make_strings(int argc, char **argv);
 t_node	*create_new_node(void);
 int		args_to_list(char **strings, t_node *node);
+int		check_double(t_node *checker_node);
 
 //		~ delete_this.c
 
