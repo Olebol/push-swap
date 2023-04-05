@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 17:03:42 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 17:33:17 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	**make_strings(int argc, char **argv);
 t_node	*create_new_node(void);
 int		args_to_list(char **strings, t_node *node);
 int		check_double(t_node *checker_node);
+int		check_input(int argc, char **argv, t_node *stack_a);
 
 //		~ delete_this.c
 

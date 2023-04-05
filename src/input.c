@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 17:03:30 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 17:33:51 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	args_to_list(char **strings, t_node *node)
 	return (1);
 }
 
-int check_double(t_node *checker_node)
+int	check_double(t_node *checker_node)
 {
 	int		checker_value;
 	t_node	*node;
@@ -78,5 +78,25 @@ int check_double(t_node *checker_node)
 		}
 		checker_node = checker_node->next;
 	}
+	return (1);
+}
+
+int	check_input(int argc, char **argv, t_node *stack_a)
+{
+	char	**strings;
+
+	strings = make_strings(argc, argv);
+	if (!strings)
+		return (write(2, ERROR, sizeof(ERROR)), 0);
+	if (!args_to_list(strings, stack_a))
+	{
+		if (argc == 2)
+			ft_free(strings);
+		return (write(2, ERROR, sizeof(ERROR)), 0);
+	}
+	if (argc == 2)
+		ft_free(strings);
+	if (!check_double(stack_a))
+		return (write(2, ERROR, sizeof(ERROR)), 0);
 	return (1);
 }
