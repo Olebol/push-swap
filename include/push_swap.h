@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 17:33:17 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 22:07:54 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,16 @@ void	check_for_leaks(void);
 
 void	free_list(t_node *node);
 void	ft_free(char **ptr_arr);
+
+//		~ swap_functions.c
+
+int		swap(t_node *stack);
+
+//		~ rotate_functions.c
+
+int		rotate(t_node **stack);
+int		rr(t_node *a, t_node *b);
+int		reverse(t_node **stack);
+int		rrr(t_node *a, t_node *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 17:33:51 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/05 22:18:10 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	args_to_list(char **strings, t_node *node)
 	t_node	*tmp;
 
 	i = 0;
-	while (strings[i] != NULL)
+	while (strings[i + 1] != NULL)
 	{
 		if (!ft_err_atoi(strings[i], &node->value))
 			return (0);
@@ -58,6 +58,8 @@ int	args_to_list(char **strings, t_node *node)
 		node = node->next;
 		i++;
 	}
+	if (!ft_err_atoi(strings[i], &node->value))
+			return (0);
 	return (1);
 }
 
@@ -70,7 +72,7 @@ int	check_double(t_node *checker_node)
 	{
 		checker_value = checker_node->value;
 		node = checker_node->next;
-		while (node->next != NULL)
+		while (node != NULL)
 		{
 			if (checker_value == node->value)
 				return (0);
@@ -92,7 +94,7 @@ int	check_input(int argc, char **argv, t_node *stack_a)
 	{
 		if (argc == 2)
 			ft_free(strings);
-		return (write(2, ERROR, sizeof(ERROR)), 0);
+		return (write(2, ERROR, sizeof(ERROR) - 1), 0);
 	}
 	if (argc == 2)
 		ft_free(strings);

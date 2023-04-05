@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   delete_this.c                                      :+:    :+:            */
+/*   swap_functions.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/28 19:13:39 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 21:50:53 by opelser       ########   odam.nl         */
+/*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
+/*   Updated: 2023/04/05 22:04:11 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "push_swap.h"
-#include <stdio.h>
 
-void	print_list(t_node *node)
+int	swap(t_node *stack)
 {
-	while (node != NULL)
-	{
-		printf("%p -> ", node);
-		printf("\e[0;32m%d\e[0m : ", node->value);
-		printf("[%p]\n", node->next);
-		node = node->next;
-	}
-	printf("\n");
+	int		tmp;
+	
+	if (stack->next == NULL)
+		return (0);
+	tmp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = tmp;
+	return (1);
 }
 
-void	check_for_leaks(void)
+int	ss(t_node *a, t_node *b)
 {
-	write(1, "\n\n\n", 3);
-	system("leaks -q push_swap");
+	if (!swap(a))
+		return (0);
+	if (!swap(b))
+		return (0);
+	return (1);
 }

@@ -19,10 +19,12 @@ LIBFT_DIR		:= $(LIB_DIR)/Libft
 LIB				:= $(LIBFT_DIR)/libft.a
 
 # Files
-SRC_FILES :=	main.c			\
-				input.c			\
-				cleanup.c		\
-				delete_this.c	\
+SRC_FILES :=	main.c				\
+				input.c				\
+				cleanup.c			\
+				delete_this.c		\
+				swap_functions.c	\
+				rotate_functions.c	\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -40,7 +42,7 @@ all: ${NAME}
 
 $(NAME): $(OBJ) $(LIB)
 	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@gcc $(OBJ) $(LIB) -o $(NAME) 
+	@gcc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) 
 	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
 
 $(LIB):
