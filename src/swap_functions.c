@@ -6,29 +6,45 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 22:04:11 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/06 15:40:51 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_node *stack)
+void	swap(t_node **first, char *print)
 {
-	int		tmp;
+	t_node	*second;
 	
-	if (stack->next == NULL)
-		return (0);
-	tmp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = tmp;
-	return (1);
+	if (first == NULL || (*first)->next == NULL)
+		return ;
+
+	second = (*first)->next;
+	(*first)->next = second->next;
+	second->next = *first;
+	*first = &(*second);
+	if (print)
+		write(1, &print, 3);
 }
 
-int	ss(t_node *a, t_node *b)
+void	ss(t_node *a, t_node *b, int print)
 {
-	if (!swap(a))
-		return (0);
-	if (!swap(b))
-		return (0);
-	return (1);
+	swap(&a, NULL);
+	swap(&b, NULL);
+	if (print)
+		write(1, "ss\n", 3);
+}
+
+void	push(t_node **src, t_node **dst, char *print)
+{
+	t_node	*second_node;
+
+	if (*src == NULL || *dst == NULL)
+		return ;
+	second_node = (*src)->next;
+	(*src)->next = *dst;
+	*dst = *src;
+	*src = second_node;
+	if (print)
+		write(1, &print, 3);
 }

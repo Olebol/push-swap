@@ -6,61 +6,62 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 22:04:19 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 22:04:34 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/06 15:41:52 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate(t_node **stack)
+void	rotate(t_node **stack, char *print)
 {
 	t_node		*first;
 	t_node		*tmp;
 
-	if ((*stack)->next == NULL)
-		return (0);
 	first = *stack;
-	tmp = first;
+	if (first == NULL || first->next == NULL)
+		return ;
 	*stack = first->next;
+	tmp = first;
 
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = first;
 	first->next = NULL;
-	return (1);
+	if (print)
+		write(1, &print, 3);
 }
 
-int rr(t_node *a, t_node *b)
+void	rr(t_node *a, t_node *b, int print)
 {
-	if (!rotate(&a))
-		return (0);
-	if (!rotate(&b))
-		return (0);
-	return (1);
+	rotate(&a, NULL);
+	rotate(&b, NULL);
+	if (print)
+		write(1, "rr\n", 3);
 }
 
-int reverse(t_node **stack)
+void	reverse(t_node **stack, char *print)
 {
 	t_node		*first;
 	t_node		*tmp;
 
-	if ((*stack)->next == NULL)
-		return (0);
 	first = *stack;
+	if (first == NULL || first->next == NULL)
+		return ;
 	tmp = first;
+
 	while (tmp->next->next != NULL)
 		tmp = tmp->next;
 	*stack = tmp->next;
 	tmp->next->next = first;
 	tmp->next = NULL;
-	return (1);
+	if (print)
+		write(1, &print, 4);
 }
 
-int rrr(t_node *a, t_node *b)
+void	rrr(t_node *a, t_node *b, int print)
 {
-	if (!reverse(&a))
-		return (0);
-	if (!reverse(&b))
-		return (0);
-	return (1);
+	reverse(&a, NULL);
+	reverse(&b, NULL);
+	if (print)
+		write(1, "rrr\n", 4);
 }
