@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/06 15:42:03 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/06 15:53:12 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_for_leaks(void);
 void	free_list(t_node *node);
 void	ft_free(char **ptr_arr);
 
-//		~ swap_functions.c
+//		~ swap_and_push_functions.c
 
 void	swap(t_node **first, char *print);
 void	ss(t_node *a, t_node *b, int print);

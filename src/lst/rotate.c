@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 22:04:19 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/06 15:41:52 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/06 15:48:21 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	rotate(t_node **stack, char *print)
 		return ;
 	*stack = first->next;
 	tmp = first;
-
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = first;
@@ -48,7 +47,6 @@ void	reverse(t_node **stack, char *print)
 	if (first == NULL || first->next == NULL)
 		return ;
 	tmp = first;
-
 	while (tmp->next->next != NULL)
 		tmp = tmp->next;
 	*stack = tmp->next;

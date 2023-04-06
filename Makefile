@@ -23,8 +23,8 @@ SRC_FILES :=	main.c				\
 				input.c				\
 				cleanup.c			\
 				delete_this.c		\
-				swap_functions.c	\
-				rotate_functions.c	\
+				lst/swap_and_push.c	\
+				lst/rotate.c		\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -50,6 +50,7 @@ $(LIB):
 
 $(OBJ_DIR)/%.o: src/%.c $(HDR)
 	@mkdir -p obj
+	@mkdir -p "obj/lst"
 	@gcc $(CFLAGS) -I $(HDR_DIR) -c $< -o $@
 
 norminette:

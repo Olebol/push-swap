@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/05 22:18:10 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/06 15:45:45 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	args_to_list(char **strings, t_node *node)
 		i++;
 	}
 	if (!ft_err_atoi(strings[i], &node->value))
-			return (0);
+		return (0);
 	return (1);
 }
 
