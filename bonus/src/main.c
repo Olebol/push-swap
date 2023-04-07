@@ -20,16 +20,16 @@
 	// execute command one by one
 	// check if sorted
 
-void	run_command(t_node *a, t_node *b, char *cmd)
+void	run_command(t_node **a, t_node **b, char *cmd)
 {
 	(void) b;
 	if (!ft_strncmp(cmd, "sa\n", 3))
-		swap(&a);
+		swap(a);
 	if (!ft_strncmp(cmd, "ra\n", 3))
-		rotate(&a);
+		rotate(a);
 }
 
-void	execute_rules(t_node *a, t_node *b)
+void	execute_rules(t_node **a, t_node **b)
 {
 	char	*cmd;
 	(void) b;
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 
-	// atexit(check_for_leaks);
+	atexit(check_for_leaks);
 
 	b = NULL;
 	a = create_new_node();
@@ -73,14 +73,12 @@ int	main(int argc, char **argv)
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
 
-	print_list(a, 'a');
-	execute_rules(a, b);
+	execute_rules(&a, &b);
 	if (is_sorted(a, b))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 
-	print_list(a, 'a');
 	free_list(a);
 	free_list(b);
 	return (0);
