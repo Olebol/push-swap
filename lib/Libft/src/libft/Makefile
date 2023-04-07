@@ -2,7 +2,7 @@ NAME := libft.a
 NICKNAME := LIBFT
 
 # Directories
-HDR_DIR := lib
+HDR_DIR := ../../include
 SRC_DIR := src
 OBJ_DIR := obj
 
@@ -61,14 +61,9 @@ BOLD	:= \033[1m
 RESET	:= \033[0m
 
 # Rules
-all: ${NAME}
+all: ${OBJ}
 
-$(NAME): $(OBJ)
-	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@ar rc ${NAME} $<
-	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
-
-$(OBJ_DIR)/%.o: src/%.c $(HDR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDR)
 	@mkdir -p obj
 	@gcc $(CFLAGS) -I $(HDR_DIR) -c $< -o $@
 
@@ -76,7 +71,6 @@ norminette:
 	@norminette $(SRC)
 
 clean:
-	@echo "$(RED)$(BOLD)Cleaning $(NICKNAME)...$(RESET)"
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 

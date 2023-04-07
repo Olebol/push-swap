@@ -6,11 +6,11 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 22:04:19 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 19:13:52 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/07 19:22:05 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	rotate(t_node **stack, char *print)
 {
@@ -26,16 +26,12 @@ void	rotate(t_node **stack, char *print)
 		tmp = tmp->next;
 	tmp->next = first;
 	first->next = NULL;
-	if (print)
-		write(1, print, 3);
 }
 
 void	rr(t_node *a, t_node *b, int print)
 {
 	rotate(&a, NULL);
 	rotate(&b, NULL);
-	if (print)
-		write(1, "rr\n", 3);
 }
 
 void	reverse(t_node **stack, char *print)
@@ -52,14 +48,10 @@ void	reverse(t_node **stack, char *print)
 	*stack = tmp->next;
 	tmp->next->next = first;
 	tmp->next = NULL;
-	if (print)
-		write(1, print, 4);
 }
 
 void	rrr(t_node *a, t_node *b, int print)
 {
 	reverse(&a, NULL);
 	reverse(&b, NULL);
-	if (print)
-		write(1, "rrr\n", 4);
 }

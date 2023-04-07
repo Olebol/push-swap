@@ -6,11 +6,11 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 15:00:08 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/07 18:51:34 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	swap(t_node **first, char *print)
 {

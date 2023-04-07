@@ -6,11 +6,11 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/28 20:54:15 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 15:58:20 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/07 18:51:17 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	free_list(t_node *node)
 {

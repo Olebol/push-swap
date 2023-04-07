@@ -56,11 +56,16 @@ $(OBJ_DIR)/%.o: src/%.c $(HDR)
 norminette:
 	@norminette $(SRC)
 
+bonus:
+	@make -C ./bonus
+	@mv bonus/checker ./
+
 clean:
 	@echo "$(RED)$(BOLD)Cleaning $(NICKNAME)...$(RESET)"
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 	@make clean -C $(LIBFT_DIR)
+	@make clean -C ./bonus
 
 fclean:
 	@echo "$(RED)$(BOLD)Fully cleaning $(NICKNAME)...$(RESET)"
@@ -68,7 +73,8 @@ fclean:
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 	@make fclean -C $(LIBFT_DIR)
+	@make fclean -C ./bonus
 
 re: fclean ${NAME}
 
-.PHONY: all norminette clean fclean re
+.PHONY: all norminette bonus clean fclean re

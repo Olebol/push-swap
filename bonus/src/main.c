@@ -5,17 +5,57 @@
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 19:14:39 by opelser       ########   odam.nl         */
+/*   Created: 2023/04/06 22:02:06 by opelser       #+#    #+#                 */
+/*   Updated: 2023/04/07 19:20:51 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
+#include "checker.h"
 
-// for push, add edge case for if theres nothing on there.
-// 			it needs to create a new node
+	// check input, make list
+	// get_next_line with buffer size 3
+	// 		or put all input into one string
+	// execute command one by one
+	// check if sorted
+
+void	run_command(t_node *a, t_node *b, char *cmd)
+{
+	(void) b;
+	if (!ft_strncmp(cmd, "sa\n", 3))
+		swap(&a, NULL);
+	if (!ft_strncmp(cmd, "ra\n", 3))
+		rotate(&a, NULL);
+}
+
+void	execute_rules(t_node *a, t_node *b)
+{
+	char	*cmd;
+	(void) b;
+
+	cmd = get_next_line(0);
+	while (cmd)
+	{
+		write(1, cmd, 3);
+		run_command(a, b, cmd);
+		free(cmd);
+		cmd = get_next_line(0);
+	}
+}
+
+int	is_sorted(t_node *a, t_node *b)
+{
+	if (b != NULL)
+		return (0);
+	while (a->next != NULL)
+	{
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,12 +73,14 @@ int	main(int argc, char **argv)
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
 
-	// print_list(a, 'a');
-	// print_list(b, 'b');
-	rotate(&a, "ra\n");
-	// print_list(a, 'a');
-	// print_list(b, 'b');
+	print_list(a, 'a');
+	execute_rules(a, b);
+	if (is_sorted(a, b))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 
+	print_list(a, 'a');
 	free_list(a);
 	free_list(b);
 	return (0);

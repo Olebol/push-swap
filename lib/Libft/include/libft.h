@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 22:30:03 by opelser       #+#    #+#                 */
-/*   Updated: 2023/03/28 18:18:35 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/07 16:53:37 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
+# include "printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   cleanup.c                                          :+:    :+:            */
+/*   delete_this.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/03/28 20:54:15 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 15:58:20 by opelser       ########   odam.nl         */
+/*   Created: 2023/03/28 19:13:39 by opelser       #+#    #+#                 */
+/*   Updated: 2023/04/07 18:51:14 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <unistd.h>
+#include "checker.h"
+#include <stdio.h>
 
-void	free_list(t_node *node)
+void	print_list(t_node *node, int stack)
 {
-	if (node == NULL)
-		return ;
-	while (node->next != NULL)
+	printf("%c\n", stack);
+	while (node != NULL)
 	{
-		free(node);
+		printf("%p -> ", node);
+		printf("\e[0;32m%d\e[0m : ", node->value);
+		printf("[%p]\n", node->next);
 		node = node->next;
 	}
-	free(node);
+	printf("\n");
 }
 
-void	free_ptr_arr(char **ptr_arr)
+void	check_for_leaks(void)
 {
-	int		i;
-
-	i = 0;
-	while (ptr_arr[i])
-	{
-		free(ptr_arr[i]);
-		i++;
-	}
-	free(ptr_arr);
+	write(1, "\n\n\n", 3);
+	system("leaks -q push_swap");
 }

@@ -1,24 +1,30 @@
-NAME := ft_printf.a
-NICKNAME := PRINTF
+NAME := checker
+NICKNAME := CHECKER
 
 # Directories
-HDR_DIR := lib
+HDR_DIR := include
+LIB_DIR := ../lib
 SRC_DIR := src
 OBJ_DIR := obj
 
 # Compiler flags
 CC := gcc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -g
 
 # Includes
-HDR_FILES :=	ft_conversions.h		\
-				ft_printf.h
+HDR_FILES :=	checker.h
+
+# Libft
+LIBFT_DIR		:= $(LIB_DIR)/Libft
+LIB				:= $(LIBFT_DIR)/libft.a
 
 # Files
-SRC_FILES :=	ft_base_conversion.c	\
-				ft_convert_nums.c		\
-				ft_convert.c			\
-				ft_printf.c				\
+SRC_FILES :=	main.c				\
+				input.c				\
+				cleanup.c			\
+				delete_this.c		\
+				lst/swap_and_push.c	\
+				lst/rotate.c		\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -34,13 +40,17 @@ RESET	:= \033[0m
 # Rules
 all: ${NAME}
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIB)
 	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@ar rc ${NAME} $<
+	@gcc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) 
 	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
+
+$(LIB):
+	@make -C $(LIBFT_DIR)
 
 $(OBJ_DIR)/%.o: src/%.c $(HDR)
 	@mkdir -p obj
+	@mkdir -p "obj/lst"
 	@gcc $(CFLAGS) -I $(HDR_DIR) -c $< -o $@
 
 norminette:
@@ -51,8 +61,11 @@ clean:
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 
-fclean: clean
+fclean:
+	@echo "$(RED)$(BOLD)Fully cleaning $(NICKNAME)...$(RESET)"
 	@rm -rf ${NAME}
+	@rm -rf $(OBJ)
+	@rm -rf $(OBJ_DIR)
 
 re: fclean ${NAME}
 

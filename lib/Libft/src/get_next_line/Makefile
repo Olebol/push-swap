@@ -1,8 +1,8 @@
-NAME := get_next_line.a
+NAME := get_next_line
 NICKNAME := GNL
 
 # Directories
-HDR_DIR := lib
+HDR_DIR := ../../include
 SRC_DIR := src
 OBJ_DIR := obj
 
@@ -14,7 +14,7 @@ CFLAGS := -Wall -Werror -Wextra
 HDR_FILES :=	get_next_line.h
 
 # Files
-SRC_FILES :=	get_next_line.c	\
+SRC_FILES :=	get_next_line.c			\
 				get_next_line_utils.c
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
@@ -29,14 +29,9 @@ BOLD	:= \033[1m
 RESET	:= \033[0m
 
 # Rules
-all: ${NAME}
+all: ${OBJ}
 
-$(NAME): $(OBJ)
-	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@ar rc ${NAME} $<
-	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
-
-$(OBJ_DIR)/%.o: src/%.c $(HDR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HDR)
 	@mkdir -p obj
 	@gcc $(CFLAGS) -I $(HDR_DIR) -c $< -o $@
 
@@ -44,7 +39,6 @@ norminette:
 	@norminette $(SRC)
 
 clean:
-	@echo "$(RED)$(BOLD)Cleaning $(NICKNAME)...$(RESET)"
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 
