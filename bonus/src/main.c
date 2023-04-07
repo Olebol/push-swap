@@ -24,9 +24,9 @@ void	run_command(t_node *a, t_node *b, char *cmd)
 {
 	(void) b;
 	if (!ft_strncmp(cmd, "sa\n", 3))
-		swap(&a, NULL);
+		swap(&a);
 	if (!ft_strncmp(cmd, "ra\n", 3))
-		rotate(&a, NULL);
+		rotate(&a);
 }
 
 void	execute_rules(t_node *a, t_node *b)

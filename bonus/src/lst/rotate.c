@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-void	rotate(t_node **stack, char *print)
+void	rotate(t_node **stack)
 {
 	t_node		*first;
 	t_node		*tmp;
@@ -28,13 +28,13 @@ void	rotate(t_node **stack, char *print)
 	first->next = NULL;
 }
 
-void	rr(t_node *a, t_node *b, int print)
+void	rr(t_node *a, t_node *b)
 {
-	rotate(&a, NULL);
-	rotate(&b, NULL);
+	rotate(&a);
+	rotate(&b);
 }
 
-void	reverse(t_node **stack, char *print)
+void	reverse(t_node **stack)
 {
 	t_node		*first;
 	t_node		*tmp;
@@ -50,8 +50,8 @@ void	reverse(t_node **stack, char *print)
 	tmp->next = NULL;
 }
 
-void	rrr(t_node *a, t_node *b, int print)
+void	rrr(t_node *a, t_node *b)
 {
-	reverse(&a, NULL);
-	reverse(&b, NULL);
+	reverse(&a);
+	reverse(&b);
 }

@@ -47,6 +47,6 @@ int	ft_printf_s(va_list va_ptr)
 
 int	ft_printf_percent(va_list va_ptr)
 {
-	va_ptr = NULL;
+	(void) va_ptr;
 	return (write(1, "%", 1));
 }
