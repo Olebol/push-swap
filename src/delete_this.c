@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/28 19:13:39 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/06 14:24:21 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/08 15:41:32 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	print_list(t_node *node, int stack)
+void	print_list(t_node *node, char stack)
 {
 	printf("%c\n", stack);
 	while (node != NULL)

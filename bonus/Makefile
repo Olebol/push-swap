@@ -63,7 +63,7 @@ clean:
 
 fclean:
 	@echo "$(RED)$(BOLD)Fully cleaning $(NICKNAME)...$(RESET)"
-	@rm -rf ${NAME}
+	@rm -rf ../${NAME}
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 

@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/06 22:02:06 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 19:20:51 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/08 13:08:45 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	execute_rules(t_node **a, t_node **b)
 	cmd = get_next_line(0);
 	while (cmd)
 	{
-		write(1, cmd, 3);
 		run_command(a, b, cmd);
 		free(cmd);
 		cmd = get_next_line(0);

@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 17:28:06 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/08 15:41:40 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		check_input(int argc, char **argv, t_node *stack_a);
 
 //		~ delete_this.c
 
-void	print_list(t_node *node, int stack);
+void	print_list(t_node *node, char stack);
 void	check_for_leaks(void);
 
 //		~ cleanup.c
@@ -50,5 +50,9 @@ void	rotate(t_node **stack, char *print);
 void	rr(t_node *a, t_node *b, int print);
 void	reverse(t_node **stack, char *print);
 void	rrr(t_node *a, t_node *b, int print);
+
+//		~ sort.c
+
+void	bubble_sort(t_node **a);
 
 #endif

@@ -25,6 +25,7 @@ SRC_FILES :=	main.c				\
 				delete_this.c		\
 				lst/swap_and_push.c	\
 				lst/rotate.c		\
+				sort.c
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
