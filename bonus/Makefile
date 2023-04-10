@@ -1,4 +1,4 @@
-NAME := checker
+NAME := ../checker
 NICKNAME := CHECKER
 
 # Directories
@@ -42,7 +42,7 @@ all: ${NAME}
 
 $(NAME): $(OBJ) $(LIB)
 	@printf "%b%s%b" "$(YELLOW)$(BOLD)" "Compiling $(NICKNAME)..." "$(RESET)"
-	@gcc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) 
+	@gcc $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
 	@printf "\t\t%b%s%b\n" "$(GREEN)$(BOLD)" "[OK]" "$(RESET)"
 
 $(LIB):
@@ -63,7 +63,7 @@ clean:
 
 fclean:
 	@echo "$(RED)$(BOLD)Fully cleaning $(NICKNAME)...$(RESET)"
-	@rm -rf ../${NAME}
+	@rm -rf ${NAME}
 	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_DIR)
 

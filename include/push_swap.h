@@ -6,13 +6,13 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/08 15:41:40 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/10 21:28:17 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../lib/Libft/include/libft.h"
+# include "../lib/libft/include/libft.h"
 # define ERROR "Error\n"
 
 typedef struct s_node{
@@ -51,8 +51,11 @@ void	rr(t_node *a, t_node *b, int print);
 void	reverse(t_node **stack, char *print);
 void	rrr(t_node *a, t_node *b, int print);
 
-//		~ sort.c
+//		~ small_sort.c
 
-void	bubble_sort(t_node **a);
+void	three_sort(t_node **a);
+void	four_sort(t_node **a, t_node **b);
+void	five_sort(t_node **a, t_node **b);
+void	small_sort(int argc, t_node **a, t_node **b);
 
 #endif

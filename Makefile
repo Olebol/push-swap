@@ -15,7 +15,7 @@ CFLAGS := -Wall -Werror -Wextra -g
 HDR_FILES :=	push_swap.h
 
 # Libft
-LIBFT_DIR		:= $(LIB_DIR)/Libft
+LIBFT_DIR		:= $(LIB_DIR)/libft
 LIB				:= $(LIBFT_DIR)/libft.a
 
 # Files
@@ -25,7 +25,7 @@ SRC_FILES :=	main.c				\
 				delete_this.c		\
 				lst/swap_and_push.c	\
 				lst/rotate.c		\
-				sort.c
+				small_sort.c
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -59,7 +59,6 @@ norminette:
 
 bonus:
 	@make -C ./bonus
-	@mv bonus/checker ./
 
 clean:
 	@echo "$(RED)$(BOLD)Cleaning $(NICKNAME)...$(RESET)"

@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/08 17:19:07 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/10 21:38:06 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	swap(t_node **first, char *print)
 	(*first)->next = second->next;
 	second->next = *first;
 	*first = second;
-
-
 	if (print)
 		write(1, print, 3);
 }

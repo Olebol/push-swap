@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/08 13:37:32 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/10 21:37:32 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@
 
 // for push, add edge case for if theres nothing on there.
 // 			it needs to create a new node
+
+int	new_argc(int argc, t_node *a)
+{
+	if (argc > 2)
+		return (argc - 1);
+	argc = 0;
+	while (a != NULL)
+	{
+		a = a->next;
+		argc++;
+	}
+	return (argc);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,9 +46,8 @@ int	main(int argc, char **argv)
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
 
-	// print_list(a, 'a');
-	// print_list(b, 'b');
-	bubble_sort(&a);
+	argc = new_argc(argc, a);
+	small_sort(argc, &a, &b);
 	print_list(a, 'a');
 	// print_list(a, 'a');
 	// print_list(b, 'b');
