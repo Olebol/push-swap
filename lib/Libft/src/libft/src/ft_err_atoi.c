@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 17:06:26 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/04 14:30:57 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 14:28:33 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_err_atoi(const char *str, int *result)
 
 	tmp = 0;
 	i = get_first_num(str, &sign);
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))

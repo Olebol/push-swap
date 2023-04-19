@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/10 21:28:17 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 19:00:33 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ void	rrr(t_node *a, t_node *b, int print);
 
 //		~ small_sort.c
 
-void	three_sort(t_node **a);
-void	four_sort(t_node **a, t_node **b);
-void	five_sort(t_node **a, t_node **b);
 void	small_sort(int argc, t_node **a, t_node **b);
+
+//		~ big_sort.c
+
+void	sort(t_node **a, t_node **b);
 
 #endif

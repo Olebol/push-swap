@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/10 21:37:32 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 19:02:23 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ int	main(int argc, char **argv)
 		return (free_list(a), 1);
 
 	argc = new_argc(argc, a);
-	small_sort(argc, &a, &b);
-	print_list(a, 'a');
+	if (argc <= 5)
+		small_sort(argc, &a, &b);
+	else
+		sort(&a, &b);
+	// print_list(a, 'a');
 	// print_list(a, 'a');
 	// print_list(b, 'b');
 

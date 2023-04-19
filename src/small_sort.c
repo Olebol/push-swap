@@ -6,13 +6,19 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/08 12:57:42 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/10 21:36:57 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 12:32:56 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_sort(t_node **a)
+static void	two_sort(t_node **a)
+{
+	if ((*a)->value > (*a)->next->value)
+		rotate(a, "ra\n");
+}
+
+static void	three_sort(t_node **a)
 {
 	if ((*a)->value > (*a)->next->value
 		&& (*a)->next->value > (*a)->next->next->value)
@@ -34,7 +40,7 @@ void	three_sort(t_node **a)
 		rotate(a, "ra\n");
 }
 
-void	four_sort(t_node **a, t_node **b)
+static void	four_sort(t_node **a, t_node **b)
 {
 	t_node	*tmp;
 	int		low;
@@ -59,7 +65,7 @@ void	four_sort(t_node **a, t_node **b)
 	push(b, a, "pa\n");
 }
 
-void	five_sort(t_node **a, t_node **b)
+static void	five_sort(t_node **a, t_node **b)
 {
 	t_node	*tmp;
 	int		low;
@@ -86,10 +92,12 @@ void	five_sort(t_node **a, t_node **b)
 
 void	small_sort(int argc, t_node **a, t_node **b)
 {
-	if (argc == 3)
+	if (argc == 2)
+		two_sort(a);
+	else if (argc == 3)
 		three_sort(a);
-	if (argc == 4)
+	else if (argc == 4)
 		four_sort(a, b);
-	if (argc == 5)
+	else if (argc == 5)
 		five_sort(a, b);
 }
