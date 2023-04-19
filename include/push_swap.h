@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/19 19:00:33 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 19:29:04 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_node{
 	int				value;
+	struct s_node	*previous;
 	struct s_node	*next;
 }	t_node;
 

@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/07 15:58:45 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/19 19:29:59 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	args_to_list(char **strings, t_node *node)
 		tmp = create_new_node();
 		if (!tmp)
 			return (0);
+		tmp->previous = node;
 		node->next = tmp;
 		node = node->next;
 		i++;
