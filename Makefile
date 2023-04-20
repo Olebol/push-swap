@@ -21,12 +21,14 @@ LIB				:= $(LIBFT_DIR)/libft.a
 # Files
 SRC_FILES :=	main.c				\
 				input.c				\
-				cleanup.c			\
-				delete_this.c		\
+				utils.c				\
 				lst/swap_and_push.c	\
 				lst/rotate.c		\
-				small_sort.c		\
-				big_sort.c
+				sort/index.c		\
+				sort/small_sort.c	\
+				sort/big_sort.c		\
+				cleanup.c			\
+				delete_this.c		\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}
@@ -53,6 +55,7 @@ $(LIB):
 $(OBJ_DIR)/%.o: src/%.c $(HDR)
 	@mkdir -p obj
 	@mkdir -p "obj/lst"
+	@mkdir -p "obj/sort"
 	@gcc $(CFLAGS) -I $(HDR_DIR) -c $< -o $@
 
 norminette:

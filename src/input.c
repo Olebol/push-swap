@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/19 19:29:59 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/20 22:49:54 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_node	*create_new_node(void)
 		return (NULL);
 	new_node->next = NULL;
 	new_node->value = 0;
+	new_node->index = 0;
 	return (new_node);
 }
 

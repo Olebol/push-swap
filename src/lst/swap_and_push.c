@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/20 15:36:12 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/20 16:47:23 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void	push(t_node **src, t_node **dst, char *print)
 	(*src)->next = *dst;
 	*dst = *src;
 	*src = second_node;
-	(*src)->previous = NULL;
-	(*dst)->previous = NULL;
+	if (*dst)
+		(*dst)->previous = NULL;
+	if (*src)
+		(*src)->previous = NULL;
 	if ((*dst)-> next != NULL)
 		(*dst)->next->previous = *dst;
 	if (print)

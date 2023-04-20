@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/19 19:42:06 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/20 23:24:32 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 #include <unistd.h>
 #include <stdio.h>
 
-// for push, add edge case for if theres nothing on there.
-// 			it needs to create a new node
-
-int	new_argc(int argc, t_node *a)
+void	print_index(t_node *a)
 {
-	if (argc > 2)
-		return (argc - 1);
-	argc = 0;
-	while (a != NULL)
+	while (a)
 	{
+		printf("index:\t\t%d\t\t[%d]\n", a->index, a->value);
 		a = a->next;
-		argc++;
 	}
-	return (argc);
 }
 
 int	main(int argc, char **argv)
@@ -46,14 +39,14 @@ int	main(int argc, char **argv)
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
 
-	// argc = new_argc(argc, a);
-	// if (argc <= 5)
-	// 	small_sort(argc, &a, &b);
-	// else
-	// 	sort(&a, &b);
-	reverse(&a, "rra\n");
-	print_list(a, 'a');
-
+	index_list(&a);
+	print_index(a);
+	// if (!is_sorted(a, b))
+	// {
+	// 	argc = new_argc(argc, a);
+	// 	if (argc <= 5)
+	// 		small_sort(argc, &a, &b);
+	// }
 	free_list(a);
 	free_list(b);
 	return (0);

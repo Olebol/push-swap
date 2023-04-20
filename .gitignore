@@ -3,3 +3,6 @@
 push_swap
 *.o
 *.a
+*.exe
+visualizer
+push_swap_visualizer

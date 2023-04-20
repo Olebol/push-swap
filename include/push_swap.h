@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/19 19:29:04 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/20 23:24:24 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_node{
 	int				value;
+	int				index;
 	struct s_node	*previous;
 	struct s_node	*next;
 }	t_node;
@@ -58,6 +59,16 @@ void	small_sort(int argc, t_node **a, t_node **b);
 
 //		~ big_sort.c
 
-void	sort(t_node **a, t_node **b);
+
+
+//		~ utils.c
+
+int		is_sorted(t_node *a, t_node *b);
+int		new_argc(int argc, t_node *a);
+int		list_size(t_node *a);
+
+//		~ index.c
+
+void	index_list(t_node **a);
 
 #endif
