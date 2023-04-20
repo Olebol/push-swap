@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/05 17:39:21 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/10 21:38:06 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/20 15:36:12 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	swap(t_node **first, char *print)
 	(*first)->next = second->next;
 	second->next = *first;
 	*first = second;
+	second = (*first)->next;
+	(*first)->previous = NULL;
+	second->previous = *first;
+	second->next->previous = second;
 	if (print)
 		write(1, print, 3);
 }
@@ -44,6 +48,10 @@ void	push(t_node **src, t_node **dst, char *print)
 	(*src)->next = *dst;
 	*dst = *src;
 	*src = second_node;
+	(*src)->previous = NULL;
+	(*dst)->previous = NULL;
+	if ((*dst)-> next != NULL)
+		(*dst)->next->previous = *dst;
 	if (print)
 		write(1, print, 3);
 }
