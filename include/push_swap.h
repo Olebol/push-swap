@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/20 23:24:24 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/21 17:27:36 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	small_sort(int argc, t_node **a, t_node **b);
 
 //		~ big_sort.c
 
-
+void	big_sort(t_node **a, t_node **b);
 
 //		~ utils.c
 
