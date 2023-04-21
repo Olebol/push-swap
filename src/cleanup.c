@@ -14,12 +14,15 @@
 
 void	free_list(t_node *node)
 {
+	t_node	*tmp;
+
 	if (node == NULL)
 		return ;
 	while (node->next != NULL)
 	{
+		tmp = node->next;
 		free(node);
-		node = node->next;
+		node = tmp;
 	}
 	free(node);
 }
