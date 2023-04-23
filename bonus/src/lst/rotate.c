@@ -28,10 +28,10 @@ void	rotate(t_node **stack)
 	first->next = NULL;
 }
 
-void	rr(t_node *a, t_node *b)
+void	rr(t_node **a, t_node **b)
 {
-	rotate(&a);
-	rotate(&b);
+	rotate(a);
+	rotate(b);
 }
 
 void	reverse(t_node **stack)
@@ -50,8 +50,8 @@ void	reverse(t_node **stack)
 	tmp->next = NULL;
 }
 
-void	rrr(t_node *a, t_node *b)
+void	rrr(t_node **a, t_node **b)
 {
-	reverse(&a);
-	reverse(&b);
+	reverse(a);
+	reverse(b);
 }

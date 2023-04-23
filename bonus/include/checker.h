@@ -41,14 +41,14 @@ void	free_ptr_arr(char **ptr_arr);
 //		~ swap_and_push_functions.c
 
 void	swap(t_node **first);
-void	ss(t_node *a, t_node *b);
+void	ss(t_node **a, t_node **b);
 void	push(t_node **src, t_node **dst);
 
 //		~ rotate_functions.c
 
 void	rotate(t_node **stack);
-void	rr(t_node *a, t_node *b);
+void	rr(t_node **a, t_node **b);
 void	reverse(t_node **stack);
-void	rrr(t_node *a, t_node *b);
+void	rrr(t_node **a, t_node **b);
 
 #endif

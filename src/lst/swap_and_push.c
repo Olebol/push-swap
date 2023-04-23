@@ -30,10 +30,10 @@ void	swap(t_node **first, char *print)
 		write(1, print, 3);
 }
 
-void	ss(t_node *a, t_node *b, int print)
+void	ss(t_node **a, t_node **b, int print)
 {
-	swap(&a, NULL);
-	swap(&b, NULL);
+	swap(a, NULL);
+	swap(b, NULL);
 	if (print)
 		write(1, "ss\n", 3);
 }

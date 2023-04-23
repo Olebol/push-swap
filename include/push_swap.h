@@ -43,15 +43,15 @@ void	free_ptr_arr(char **ptr_arr);
 //		~ swap_and_push_functions.c
 
 void	swap(t_node **first, char *print);
-void	ss(t_node *a, t_node *b, int print);
+void	ss(t_node **a, t_node **b, int print);
 void	push(t_node **src, t_node **dst, char *print);
 
 //		~ rotate_functions.c
 
 void	rotate(t_node **stack, char *print);
-void	rr(t_node *a, t_node *b, int print);
+void	rr(t_node **a, t_node **b, int print);
 void	reverse(t_node **stack, char *print);
-void	rrr(t_node *a, t_node *b, int print);
+void	rrr(t_node **a, t_node **b, int print);
 
 //		~ small_sort.c
 

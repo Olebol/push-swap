@@ -32,10 +32,10 @@ void	rotate(t_node **stack, char *print)
 		write(1, print, 3);
 }
 
-void	rr(t_node *a, t_node *b, int print)
+void	rr(t_node **a, t_node **b, int print)
 {
-	rotate(&a, NULL);
-	rotate(&b, NULL);
+	rotate(a, NULL);
+	rotate(b, NULL);
 	if (print)
 		write(1, "rr\n", 3);
 }
@@ -60,10 +60,10 @@ void	reverse(t_node **stack, char *print)
 		write(1, print, 4);
 }
 
-void	rrr(t_node *a, t_node *b, int print)
+void	rrr(t_node **a, t_node **b, int print)
 {
-	reverse(&a, NULL);
-	reverse(&b, NULL);
+	reverse(a, NULL);
+	reverse(b, NULL);
 	if (print)
 		write(1, "rrr\n", 4);
 }

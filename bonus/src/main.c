@@ -22,11 +22,24 @@
 
 void	run_command(t_node **a, t_node **b, char *cmd)
 {
-	(void) b;
-	if (!ft_strncmp(cmd, "sa\n", 3))
+	if (!ft_strcmp(cmd, "sa\n"))
 		swap(a);
-	if (!ft_strncmp(cmd, "ra\n", 3))
+	else if (!ft_strcmp(cmd, "sb\n"))
+		swap(b);
+	else if (!ft_strcmp(cmd, "ss\n"))
+		ss(a, b);
+	else if (!ft_strcmp(cmd, "ra\n"))
 		rotate(a);
+	else if (!ft_strcmp(cmd, "rb\n"))
+		rotate(b);
+	else if (!ft_strcmp(cmd, "rr\n"))
+		rr(a, b);
+	else if (!ft_strcmp(cmd, "rra\n"))
+		reverse(a);
+	else if (!ft_strcmp(cmd, "rrb\n"))
+		reverse(b);
+	else if (!ft_strcmp(cmd, "rrr\n"))
+		rrr(a, b);
 }
 
 void	execute_rules(t_node **a, t_node **b)

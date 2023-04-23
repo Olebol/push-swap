@@ -24,10 +24,10 @@ void	swap(t_node **first)
 	*first = &(*second);
 }
 
-void	ss(t_node *a, t_node *b)
+void	ss(t_node **a, t_node **b)
 {
-	swap(&a);
-	swap(&b);
+	swap(a);
+	swap(b);
 }
 
 void	push(t_node **src, t_node **dst)
