@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <limits.h>
 
 char	*ft_free(char **ptr);
 ssize_t	find_newline(char *str);
@@ -24,7 +23,7 @@ char	*get_next_line(int fd)
 	static char		*rest;
 	char			*new;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	str = NULL;
 	if (rest)
