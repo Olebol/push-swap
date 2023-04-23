@@ -14,12 +14,6 @@
 #include <unistd.h>
 #include "checker.h"
 
-	// check input, make list
-	// get_next_line with buffer size 3
-	// 		or put all input into one string
-	// execute command one by one
-	// check if sorted
-
 void	run_command(t_node **a, t_node **b, char *cmd)
 {
 	if (!ft_strcmp(cmd, "sa\n"))
