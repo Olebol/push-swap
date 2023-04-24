@@ -6,13 +6,26 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/20 22:49:54 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 16:32:36 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**make_strings(int argc, char **argv)
+t_node	*create_new_node(void)
+{
+	t_node	*new_node;
+
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->next = NULL;
+	new_node->value = 0;
+	new_node->index = 0;
+	return (new_node);
+}
+
+static char	**make_strings(int argc, char **argv)
 {
 	char	**numbers;
 
@@ -29,20 +42,7 @@ char	**make_strings(int argc, char **argv)
 	return (numbers);
 }
 
-t_node	*create_new_node(void)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->next = NULL;
-	new_node->value = 0;
-	new_node->index = 0;
-	return (new_node);
-}
-
-int	args_to_list(char **strings, t_node *node)
+static int	args_to_list(char **strings, t_node *node)
 {
 	int		i;
 	t_node	*tmp;
@@ -65,7 +65,7 @@ int	args_to_list(char **strings, t_node *node)
 	return (1);
 }
 
-int	check_double(t_node *checker_node)
+static int	check_double(t_node *checker_node)
 {
 	int		checker_value;
 	t_node	*node;
