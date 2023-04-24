@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/21 17:51:11 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:16:15 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 
-	// atexit(check_for_leaks);
-
 	b = NULL;
 	a = create_new_node();
 	if (!a)
@@ -38,17 +36,14 @@ int	main(int argc, char **argv)
 		return (free_list(a), 1);
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
-
+	if (is_sorted(a, b))
+		return (free_list(a), free_list(b), 1);
 	index_list(&a);
-	// print_index(a);
-	if (!is_sorted(a, b))
-	{
-		argc = new_argc(argc, a);
-		if (argc <= 5)
-			small_sort(argc, &a, &b);
-		else
-			big_sort(&a, &b);
-	}
+	argc = new_argc(argc, a);
+	if (argc <= 5)
+		small_sort(argc, &a, &b);
+	else
+		big_sort(&a, &b);
 	free_list(a);
 	free_list(b);
 	return (0);

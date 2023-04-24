@@ -6,12 +6,12 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/10 14:00:09 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:17:13 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 # include "../../lib/libft/include/libft.h"
 # define ERROR "Error\n"
 

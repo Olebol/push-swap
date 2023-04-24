@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/06 22:02:06 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/08 13:08:45 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:17:35 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ void	run_command(t_node **a, t_node **b, char *cmd)
 		reverse(b);
 	else if (!ft_strcmp(cmd, "rrr\n"))
 		rrr(a, b);
+	else if (!ft_strcmp(cmd, "pb\n"))
+		push(a, b);
+	else if (!ft_strcmp(cmd, "pa\n"))
+		push(b, a);
 }
 
 void	execute_rules(t_node **a, t_node **b)
 {
 	char	*cmd;
-	(void) b;
 
 	cmd = get_next_line(0);
 	while (cmd)
@@ -68,8 +71,6 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 
-	atexit(check_for_leaks);
-
 	b = NULL;
 	a = create_new_node();
 	if (!a)
@@ -78,13 +79,11 @@ int	main(int argc, char **argv)
 		return (free_list(a), 1);
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
-
 	execute_rules(&a, &b);
 	if (is_sorted(a, b))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-
 	free_list(a);
 	free_list(b);
 	return (0);
