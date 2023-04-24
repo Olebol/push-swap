@@ -10,6 +10,7 @@ checker
 push_swap
 
 # test programs
+test files
 lfrasson_tester.sh
 checker_Mac
 python_visualizer.py
