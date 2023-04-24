@@ -6,14 +6,14 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/06 22:02:06 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/24 15:57:58 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 18:33:23 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "checker.h"
 
-static void	run_command(t_node **a, t_node **b, char *cmd)
+static int	run_command(t_node **a, t_node **b, char *cmd)
 {
 	if (!ft_strcmp(cmd, "sa\n"))
 		swap(a);
@@ -37,19 +37,24 @@ static void	run_command(t_node **a, t_node **b, char *cmd)
 		push(a, b);
 	else if (!ft_strcmp(cmd, "pa\n"))
 		push(b, a);
+	else
+		return (0);
+	return (1);
 }
 
-static void	execute_rules(t_node **a, t_node **b)
+static int	execute_rules(t_node **a, t_node **b)
 {
 	char	*cmd;
 
 	cmd = get_next_line(0);
 	while (cmd)
 	{
-		run_command(a, b, cmd);
+		if (!run_command(a, b, cmd))
+			return (0);
 		free(cmd);
 		cmd = get_next_line(0);
 	}
+	return (1);
 }
 
 static int	is_sorted(t_node *a, t_node *b)
@@ -78,7 +83,8 @@ int	main(int argc, char **argv)
 		return (free_list(a), 1);
 	if (!check_input(argc, argv, a))
 		return (free_list(a), 1);
-	execute_rules(&a, &b);
+	if (!execute_rules(&a, &b))
+		return (write(2, ERROR, sizeof(ERROR)), free_list(a), free_list(b), 1);
 	if (is_sorted(a, b))
 		write(1, "OK\n", 3);
 	else

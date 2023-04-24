@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:50 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/24 16:32:36 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 18:32:43 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	check_input(int argc, char **argv, t_node *stack_a)
 	{
 		if (argc == 2)
 			free_ptr_arr(strings);
-		return (write(2, ERROR, sizeof(ERROR) - 1), 0);
+		return (write(2, ERROR, sizeof(ERROR)), 0);
 	}
 	if (argc == 2)
 		free_ptr_arr(strings);
