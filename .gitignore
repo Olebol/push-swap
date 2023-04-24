@@ -1,9 +1,15 @@
+# default
 .vscode
-./a.out
-push_swap
+a.out
 *.o
 *.a
 *.exe
-visualizer
-push_swap_visualizer
+
+# project specific
 checker
+push_swap
+
+# test programs
+lfrasson_tester.sh
+checker_Mac
+python_visualizer.py

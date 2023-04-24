@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/21 17:27:36 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:44:28 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ int		args_to_list(char **strings, t_node *node);
 int		check_double(t_node *checker_node);
 int		check_input(int argc, char **argv, t_node *stack_a);
 
-//		~ delete_this.c
+//		~ utils.c
 
-void	print_list(t_node *node, char stack);
-void	check_for_leaks(void);
-
-//		~ cleanup.c
-
+int		is_sorted(t_node *a, t_node *b);
+int		new_argc(int argc, t_node *a);
+int		list_size(t_node *a);
 void	free_list(t_node *node);
 void	free_ptr_arr(char **ptr_arr);
 
@@ -60,12 +58,6 @@ void	small_sort(int argc, t_node **a, t_node **b);
 //		~ big_sort.c
 
 void	big_sort(t_node **a, t_node **b);
-
-//		~ utils.c
-
-int		is_sorted(t_node *a, t_node *b);
-int		new_argc(int argc, t_node *a);
-int		list_size(t_node *a);
 
 //		~ index.c
 

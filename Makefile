@@ -27,8 +27,6 @@ SRC_FILES :=	main.c				\
 				sort/index.c		\
 				sort/small_sort.c	\
 				sort/big_sort.c		\
-				cleanup.c			\
-				delete_this.c		\
 
 SRC := $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRC_FILES:.c=.o}}

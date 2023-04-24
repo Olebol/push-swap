@@ -22,7 +22,6 @@ LIB				:= $(LIBFT_DIR)/libft.a
 SRC_FILES :=	main.c				\
 				input.c				\
 				cleanup.c			\
-				delete_this.c		\
 				lst/swap_and_push.c	\
 				lst/rotate.c		\
 

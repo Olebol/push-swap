@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/20 17:38:28 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/20 22:55:46 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:43:37 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,32 @@ int	is_sorted(t_node *a, t_node *b)
 		a = a->next;
 	}
 	return (1);
+}
+
+void	free_list(t_node *node)
+{
+	t_node	*tmp;
+
+	if (node == NULL)
+		return ;
+	while (node->next != NULL)
+	{
+		tmp = node->next;
+		free(node);
+		node = tmp;
+	}
+	free(node);
+}
+
+void	free_ptr_arr(char **ptr_arr)
+{
+	int		i;
+
+	i = 0;
+	while (ptr_arr[i])
+	{
+		free(ptr_arr[i]);
+		i++;
+	}
+	free(ptr_arr);
 }

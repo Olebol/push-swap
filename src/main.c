@@ -6,21 +6,21 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:48 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/24 15:16:15 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:58:38 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
-#include <stdio.h>
 
-void	print_index(t_node *a)
+static void	sort(int argc, t_node **a, t_node **b)
 {
-	while (a)
-	{
-		printf("index:\t\t%d\t\t[%d]\n", a->index, a->value);
-		a = a->next;
-	}
+	index_list(a);
+	argc = new_argc(argc, *a);
+	if (argc <= 5)
+		small_sort(argc, a, b);
+	else
+		big_sort(a, b);
 }
 
 int	main(int argc, char **argv)
@@ -38,12 +38,7 @@ int	main(int argc, char **argv)
 		return (free_list(a), 1);
 	if (is_sorted(a, b))
 		return (free_list(a), free_list(b), 1);
-	index_list(&a);
-	argc = new_argc(argc, a);
-	if (argc <= 5)
-		small_sort(argc, &a, &b);
-	else
-		big_sort(&a, &b);
+	sort(argc, &a, &b);
 	free_list(a);
 	free_list(b);
 	return (0);

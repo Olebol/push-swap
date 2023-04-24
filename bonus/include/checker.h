@@ -6,7 +6,7 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/21 22:42:55 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/24 15:17:13 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:55:09 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,8 @@ typedef struct s_node{
 
 //		~ input.c
 
-char	**make_strings(int argc, char **argv);
 t_node	*create_new_node(void);
-int		args_to_list(char **strings, t_node *node);
-int		check_double(t_node *checker_node);
 int		check_input(int argc, char **argv, t_node *stack_a);
-
-//		~ delete_this.c
-
-void	print_list(t_node *node, int stack);
-void	check_for_leaks(void);
 
 //		~ cleanup.c
 

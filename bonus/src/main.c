@@ -6,15 +6,14 @@
 /*   By: opelser <opelser@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/06 22:02:06 by opelser       #+#    #+#                 */
-/*   Updated: 2023/04/24 15:17:35 by opelser       ########   odam.nl         */
+/*   Updated: 2023/04/24 15:57:58 by opelser       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include "checker.h"
 
-void	run_command(t_node **a, t_node **b, char *cmd)
+static void	run_command(t_node **a, t_node **b, char *cmd)
 {
 	if (!ft_strcmp(cmd, "sa\n"))
 		swap(a);
@@ -40,7 +39,7 @@ void	run_command(t_node **a, t_node **b, char *cmd)
 		push(b, a);
 }
 
-void	execute_rules(t_node **a, t_node **b)
+static void	execute_rules(t_node **a, t_node **b)
 {
 	char	*cmd;
 
@@ -53,7 +52,7 @@ void	execute_rules(t_node **a, t_node **b)
 	}
 }
 
-int	is_sorted(t_node *a, t_node *b)
+static int	is_sorted(t_node *a, t_node *b)
 {
 	if (b != NULL)
 		return (0);
